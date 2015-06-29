@@ -1,5 +1,5 @@
 name: Chat
-main : com.minecraftdimensions.bungeesuitechat.BungeeSuiteChat
+main : com.minecraftdimensions.gesuitchat.geSuitChat
 version: ${project.version}b-${build.number}
 description: Part of the BungeeSuite this plugin handles all player chat
 author: Bloodsplat
@@ -68,14 +68,14 @@ commands:
         aliases: [formatc,cformat,cf]
         permission: bungeesuite.chat.command.format
         permission-message: §cYou do not have permission for this command
-        usage: /<command> (format)- changes the current channels format
+        usage: /<command> (format) - changes the current channels format
     global:
         description: Send messages/toggle to the global channel
         aliases: [g,globalchat,globalchannel,gchannel]
         permission: bungeesuite.chat.channel.global
         permission-message: §cYou do not have permission for this channel
         usage: |
-            /<command> -toggles to global channel
+            /<command> - toggles to global channel
             /<command> (message) - sends message to global channel
     ignore:
         description: Ignores a player from chat
@@ -119,6 +119,17 @@ commands:
         permission: bungeesuite.chat.command.muteall
         permission-message: §cYou do not have permission for this command
         usage: /<command>
+    namecolor:
+        description: Changes the players display name color
+        permission: bungeesuite.chat.command.namecolor
+        permission-message: §cYou do not have permission for this command
+        usage: /<command> (displayname) - &1S&2t&3e&4v&5e
+    namecoloroff:
+        description: Removes the players name color
+        aliases: [nocolor]
+        permission: bungeesuite.chat.command.namecolor
+        permission-message: §cYou do not have permission for this command
+        usage: /<command>
     nickname:
         description: Changes the players display name
         aliases: [nick,displayname]
@@ -126,7 +137,7 @@ commands:
         permission-message: §cYou do not have permission for this command
         usage: |
             /<command> (nickname) - nickname self
-            /<command> (playername) (nickname)  -nickname other player
+            /<command> (playername) (nickname) - nickname other player
     nicknameoff:
         description: Removes the players nickname
         aliases: [nickoff,nonick,nonickname]
