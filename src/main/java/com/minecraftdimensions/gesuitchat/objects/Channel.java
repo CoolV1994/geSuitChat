@@ -8,17 +8,17 @@ public class Channel {
 	private boolean muted;
 	public boolean isDefault;
 	public boolean open;
-	
-	public Channel(String name, String format, String owner, boolean muted, boolean isDefault, boolean open){
+
+	public Channel(String name, String format, String owner, boolean muted, boolean isDefault, boolean open) {
 		this.name = name;
 		this.format = format;
 		this.owner = owner;
 		this.muted = muted;
 		this.isDefault = isDefault;
-		this.open=open;
+		this.open = open;
 	}
-	
-	public Channel(String serialised){
+
+	public Channel(String serialised) {
 		String data[] = serialised.split("~");
 		name = data[0];
 		format = data[1];
@@ -27,40 +27,50 @@ public class Channel {
 		isDefault = Boolean.parseBoolean(data[4]);
 		open = Boolean.parseBoolean(data[5]);
 	}
-	
-	
-	public String getName(){
+
+
+	public String getName() {
 		return name;
 	}
-	public void setName(String name){
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	public String getFormat(){
+
+	public String getFormat() {
 		return format;
 	}
-	public void setFormat(String format){
-		this.format=format;
+
+	public void setFormat(String format) {
+		this.format = format;
 	}
-	public String getOwner(){
+
+	public String getOwner() {
 		return owner;
 	}
-	public void setOwner(String owner){
+
+	public void setOwner(String owner) {
 		this.owner = owner;
 	}
-	public boolean isOwner(String owner){
+
+	public boolean isOwner(String owner) {
 		return this.owner.equals(owner);
 	}
-	public boolean isMuted(){
+
+	public boolean isMuted() {
 		return muted;
 	}
-	public void setMuted(boolean mute){
+
+	public void setMuted(boolean mute) {
 		this.muted = mute;
 	}
-	public boolean isDefault(){
+
+	public boolean isDefault() {
 		return isDefault;
 	}
-	public String serialise(){
-		return name+"~"+format+"~"+owner+"~"+muted+"~"+isDefault+"~"+open;
+
+	public String serialise() {
+		return name + "~" + format + "~" + owner + "~" + muted + "~" + isDefault + "~" + open;
 	}
 
 }

@@ -2,7 +2,6 @@ package com.minecraftdimensions.gesuitchat.commands;
 
 import com.minecraftdimensions.gesuitchat.FormatUtils;
 import com.minecraftdimensions.gesuitchat.managers.PlayerManager;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,7 +10,7 @@ public class NameColorCommand implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command,
-			String label, String[] args) {
+							 String label, String[] args) {
 		if (args.length == 1) {
 			String nickname = args[0];
 			if (sender.getName().equals(FormatUtils.stripAll(nickname))) {

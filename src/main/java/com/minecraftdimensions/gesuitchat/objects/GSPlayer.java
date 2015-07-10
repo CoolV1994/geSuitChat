@@ -11,192 +11,192 @@ import java.util.UUID;
 
 
 public class GSPlayer {
-    private UUID uuid;
-    private String playername;
-    private String channel;
-    private boolean muted;
-    private String nickname = null;
-    private String tempname = null;
-    private boolean chatspying;
-    private boolean dnd;
-    private boolean afk;
-    private ArrayList<String> ignores = new ArrayList<String>();
+	private UUID uuid;
+	private String playername;
+	private String channel;
+	private boolean muted;
+	private String nickname = null;
+	private String tempname = null;
+	private boolean chatspying;
+	private boolean dnd;
+	private boolean afk;
+	private ArrayList<String> ignores = new ArrayList<String>();
 
-    public GSPlayer(UUID uuid, String name, String nickname, String channel, boolean muted, boolean chatspying, boolean dnd, boolean tps) {
-        this.uuid = uuid;
-        this.playername = name;
-        this.nickname = nickname;
-        this.channel = channel;
-        this.muted = muted;
-        this.chatspying = chatspying;
-        this.dnd = dnd;
-    }
-
-
-    public GSPlayer(UUID uuid, String name, String channel, boolean isMuted, String nickname, String tempName, boolean isSpying, boolean isDND, boolean isAFK) {
-        this.uuid = uuid;
-        playername = name;
-        this.channel = channel;
-        muted = isMuted;
-        if ( nickname.equals( "" ) ) {
-            this.nickname = null;
-        } else {
-            this.nickname = nickname;
-        }
-        if ( tempName.equals( "" ) ) {
-            this.tempname = null;
-        } else {
-            this.tempname = tempName;
-        }
-        this.chatspying = isSpying;
-        this.dnd = isDND;
-        this.afk = isAFK;
-        if ( getPlayer() != null ) {
-            getPlayer().setDisplayName( getDisplayingName() );
-        } else {
-            Bukkit.getScheduler().runTaskLaterAsynchronously( geSuitChat.instance, new Runnable() {
-
-                @Override
-                public void run() {
-                    if ( getPlayer() != null ) {
-                        getPlayer().setDisplayName( getDisplayingName() );
-                    }
-                }
-
-            }, 20 );
-        }
-    }
+	public GSPlayer(UUID uuid, String name, String nickname, String channel, boolean muted, boolean chatspying, boolean dnd, boolean tps) {
+		this.uuid = uuid;
+		this.playername = name;
+		this.nickname = nickname;
+		this.channel = channel;
+		this.muted = muted;
+		this.chatspying = chatspying;
+		this.dnd = dnd;
+	}
 
 
-    public String getName() {
-        return playername;
-    }
+	public GSPlayer(UUID uuid, String name, String channel, boolean isMuted, String nickname, String tempName, boolean isSpying, boolean isDND, boolean isAFK) {
+		this.uuid = uuid;
+		playername = name;
+		this.channel = channel;
+		muted = isMuted;
+		if (nickname.equals("")) {
+			this.nickname = null;
+		} else {
+			this.nickname = nickname;
+		}
+		if (tempName.equals("")) {
+			this.tempname = null;
+		} else {
+			this.tempname = tempName;
+		}
+		this.chatspying = isSpying;
+		this.dnd = isDND;
+		this.afk = isAFK;
+		if (getPlayer() != null) {
+			getPlayer().setDisplayName(getDisplayingName());
+		} else {
+			Bukkit.getScheduler().runTaskLaterAsynchronously(geSuitChat.instance, new Runnable() {
 
-    public void setPlayerName( String name ) {
-        this.playername = name;
-    }
+				@Override
+				public void run() {
+					if (getPlayer() != null) {
+						getPlayer().setDisplayName(getDisplayingName());
+					}
+				}
 
-    public Player getPlayer() {
-        return Bukkit.getPlayer( uuid );
-    }
+			}, 20);
+		}
+	}
 
-    public void sendMessage( String message ) {
-        for ( String line : message.split( "\n" ) ) {
-            getPlayer().sendMessage( line );
-        }
-    }
 
-    public String getChannelName() {
-        return channel;
-    }
+	public String getName() {
+		return playername;
+	}
 
-    public Channel getChannel() {
-        return ChannelManager.getChannel( channel );
-    }
+	public void setPlayerName(String name) {
+		this.playername = name;
+	}
 
-    public String getChannelFormat() {
-        return getChannel().getFormat();
-    }
+	public Player getPlayer() {
+		return Bukkit.getPlayer(uuid);
+	}
 
-    public void setChannel( String channel ) {
-        this.channel = channel;
-    }
+	public void sendMessage(String message) {
+		for (String line : message.split("\n")) {
+			getPlayer().sendMessage(line);
+		}
+	}
 
-    public boolean isMuted() {
-        return muted;
-    }
+	public String getChannelName() {
+		return channel;
+	}
 
-    public void setMute( boolean mute ) {
-        this.muted = mute;
-    }
+	public Channel getChannel() {
+		return ChannelManager.getChannel(channel);
+	}
 
-    public boolean hasNickname() {
-        return nickname != null;
-    }
+	public String getChannelFormat() {
+		return getChannel().getFormat();
+	}
 
-    public String getNickname() {
-        if ( nickname == null ) {
-            return "";
-        }
-        return nickname;
-    }
+	public void setChannel(String channel) {
+		this.channel = channel;
+	}
 
-    public void setNickname( String nick ) {
-        this.nickname = nick;
-    }
+	public boolean isMuted() {
+		return muted;
+	}
 
-    public boolean isChatSpying() {
-        return chatspying;
-    }
+	public void setMute(boolean mute) {
+		this.muted = mute;
+	}
 
-    public void setChatSpying( boolean spy ) {
-        this.chatspying = spy;
-    }
+	public boolean hasNickname() {
+		return nickname != null;
+	}
 
-    public boolean isDND() {
-        return dnd;
-    }
+	public String getNickname() {
+		if (nickname == null) {
+			return "";
+		}
+		return nickname;
+	}
 
-    public void setDND( boolean dnd ) {
-        this.dnd = dnd;
-    }
+	public void setNickname(String nick) {
+		this.nickname = nick;
+	}
 
-    public void addIgnore( String player ) {
-        this.ignores.add( player );
-    }
+	public boolean isChatSpying() {
+		return chatspying;
+	}
 
-    public void removeIgnore( String player ) {
-        this.ignores.remove( player );
-    }
+	public void setChatSpying(boolean spy) {
+		this.chatspying = spy;
+	}
 
-    public boolean ignoringPlayer( String player ) {
-        return ignores.contains( player );
-    }
+	public boolean isDND() {
+		return dnd;
+	}
 
-    public boolean isOnline() {
-        return PlayerManager.isPlayerOnline( getName() );
-    }
+	public void setDND(boolean dnd) {
+		this.dnd = dnd;
+	}
 
-    public boolean isAFK() {
-        return afk;
-    }
+	public void addIgnore(String player) {
+		this.ignores.add(player);
+	}
 
-    public void setAFK( boolean afk ) {
-        this.afk = afk;
-    }
+	public void removeIgnore(String player) {
+		this.ignores.remove(player);
+	}
 
-    public String getDisplayingName() {
-        if ( tempname != null ) {
-            return tempname;
-        } else if ( nickname != null ) {
-            return nickname;
-        } else {
-            return playername;
-        }
-    }
+	public boolean ignoringPlayer(String player) {
+		return ignores.contains(player);
+	}
 
-    public void updateDisplayName() {
-        if ( getPlayer() != null ) {
-            getPlayer().setDisplayName( getDisplayingName() );
-        } else {
-            Bukkit.getScheduler().runTaskLater( geSuitChat.instance, new Runnable() {
-                @Override
-                public void run() {
-                    if ( getPlayer() != null ) {
-                        getPlayer().setDisplayName( getDisplayingName() );
-                    } else {
-                        PlayerManager.unloadPlayer( getName() );
-                    }
-                }
-            }, 20 );
-        }
-    }
+	public boolean isOnline() {
+		return PlayerManager.isPlayerOnline(getName());
+	}
 
-    public ArrayList<String> getIgnores() {
-        return ignores;
-    }
+	public boolean isAFK() {
+		return afk;
+	}
 
-    public void setIgnores( ArrayList<String> ignores ) {
-        this.ignores = ignores;
-    }
+	public void setAFK(boolean afk) {
+		this.afk = afk;
+	}
+
+	public String getDisplayingName() {
+		if (tempname != null) {
+			return tempname;
+		} else if (nickname != null) {
+			return nickname;
+		} else {
+			return playername;
+		}
+	}
+
+	public void updateDisplayName() {
+		if (getPlayer() != null) {
+			getPlayer().setDisplayName(getDisplayingName());
+		} else {
+			Bukkit.getScheduler().runTaskLater(geSuitChat.instance, new Runnable() {
+				@Override
+				public void run() {
+					if (getPlayer() != null) {
+						getPlayer().setDisplayName(getDisplayingName());
+					} else {
+						PlayerManager.unloadPlayer(getName());
+					}
+				}
+			}, 20);
+		}
+	}
+
+	public ArrayList<String> getIgnores() {
+		return ignores;
+	}
+
+	public void setIgnores(ArrayList<String> ignores) {
+		this.ignores = ignores;
+	}
 }

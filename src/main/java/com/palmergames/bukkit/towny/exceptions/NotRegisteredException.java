@@ -2,15 +2,15 @@ package com.palmergames.bukkit.towny.exceptions;
 
 public class NotRegisteredException extends TownyException {
 
-    private static final long serialVersionUID = 175945283391669005L;
+	private static final long serialVersionUID = 175945283391669005L;
 
-    public NotRegisteredException() {
+	public NotRegisteredException() {
 
-        super( "Not registered." );
-    }
+		super("Not registered.");
+	}
 
-    public NotRegisteredException( String message ) {
+	public NotRegisteredException(String message) {
 
-        super( message );
-    }
+		super(message);
+	}
 }
