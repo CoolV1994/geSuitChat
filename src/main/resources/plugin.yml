@@ -3,32 +3,32 @@ main : com.minecraftdimensions.gesuitchat.geSuitChat
 version: ${project.version}b-${build.number}
 description: Part of the BungeeSuite this plugin handles all player chat
 author: Bloodsplat
-website: http://www.spigotmc.org/resources/bungeesuite.9/
-prefix: BungeeSuite
+website: http://www.spigotmc.org/resources/gesuit.9/
+prefix: geSuit
 softdepend: [Factions, TownyChat, Towny]
 commands:
     admin:
         description: Send messages/toggle to the admin channel
         aliases: [a,ac]
-        permission: bungeesuite.chat.channel.admin
+        permission: gesuit.chat.channel.admin
         permission-message: §cYou do not have permission for this channel
         usage: /<command>  *(message)
     afk:
         description: Toggles a players afk status
         aliases: [away, brb]
-        permission: bungeesuite.chat.command.afk
+        permission: gesuit.chat.command.afk
         permission-message: §cYou do not have permission for this command
         usage: /<command>
     chatspy:
         description: Allows players to see all messages
         aliases: [cspy,spy,socialspy]
-        permission: bungeesuite.chat.command.chatspy
+        permission: gesuit.chat.command.chatspy
         permission-message: §cYou do not have permission for this command
         usage: /<command>
     channelinfo:
         description: Gets the information for the channel
         aliases: [channel,c,cinfo]
-        permission: bungeesuite.chat.command.channelinfo
+        permission: gesuit.chat.command.channelinfo
         permission-message: §cYou do not have permission for this command
         usage: |
             /<command> - gets current channels information
@@ -36,43 +36,43 @@ commands:
     factionchat:
         description: Allows the player to talk in the faction channel
         aliases: [fc]
-        permission: bungeesuite.chat.channel.faction
+        permission: gesuit.chat.channel.faction
         permission-message: §cYou are unable to talk in this channel
     factionchatally:
         description: Allows the player to talk in the faction ally channel
         aliases: [fca]
-        permission: bungeesuite.chat.channel.factionally
+        permission: gesuit.chat.channel.factionally
         permission-message: §cYou are unable to talk in this channel 
     factionchatfaction:
         description: Allows the player to talk in the faction ally channel
         aliases: [fcf]
-        permission: bungeesuite.chat.channel.faction
+        permission: gesuit.chat.channel.faction
         permission-message: §cYou are unable to talk in this channel
     townychat:
         description: Allows the player to talk in the towny town channel
         aliases: [tc]
-        permission: bungeesuite.chat.channel.town
+        permission: gesuit.chat.channel.town
         permission-message: §cYou are unable to talk in this channel
     townychattown:
         description: Allows the player to talk in towny town channel
         aliases: [tct]
-        permission: bungeesuite.chat.channel.town
+        permission: gesuit.chat.channel.town
         permission-message: §cYou are unable to talk in this channel
     townychatnation:
         description: Allows the player to talk in the towny nation channel
         aliases: [nationchat, nc, tcn]
-        permission: bungeesuite.chat.channel.nation
+        permission: gesuit.chat.channel.nation
         permission-message: §cYou are unable to talk in this channel
     formatchannel:
         description: Changes the format of the channel
         aliases: [formatc,cformat,cf]
-        permission: bungeesuite.chat.command.format
+        permission: gesuit.chat.command.format
         permission-message: §cYou do not have permission for this command
         usage: /<command> (format) - changes the current channels format
     global:
         description: Send messages/toggle to the global channel
         aliases: [g,globalchat,globalchannel,gchannel]
-        permission: bungeesuite.chat.channel.global
+        permission: gesuit.chat.channel.global
         permission-message: §cYou do not have permission for this channel
         usage: |
             /<command> - toggles to global channel
@@ -80,19 +80,19 @@ commands:
     ignore:
         description: Ignores a player from chat
         aliases: [ignoreplayer,playerignore]
-        permission: bungeesuite.chat.command.ignore
+        permission: gesuit.chat.command.ignore
         permission-message: §cYou do not have permission for this command
         usage: /<command> (player)
     ignores:
         description: Gives a list of your ignored players
         aliases: [ignorelist,listignores]
-        permission: bungeesuite.chat.command.ignores
+        permission: gesuit.chat.command.ignores
         permission-message: §cYou do not have permission for this command
         usage: /<command>
     local:
         description: Send messages/toggle to the local channel
         aliases: [l,lc,localchannel,lchannel,channellocal]
-        permission: bungeesuite.chat.channel.local
+        permission: gesuit.chat.channel.local
         permission-message: §cYou do not have permission for this channel
         usage: |
             /<command> - toggles to local channel
@@ -100,40 +100,40 @@ commands:
     me:
         description: Sends an emote to the chat on your server
         aliases: [emote]
-        permission: bungeesuite.chat.command.me
+        permission: gesuit.chat.command.me
         permission-message: §cYou do not have permission for this command
         usage: /<command> (message)
     message:
         description: Send a private message to a player
         aliases: [tell,msg,pm,w,whisper,m]
-        permission: bungeesuite.chat.command.message
+        permission: gesuit.chat.command.message
         permission-message: §cYou do not have permission for this command
         usage: /<command> (message)
     mute:
         description: Mute a specified player from chat
-        permission: bungeesuite.chat.command.mute
+        permission: gesuit.chat.command.mute
         permission-message: §cYou do not have permission for this command
         usage: /<command> (player)
     muteall:
         description: Mutes all chat proxy wide
-        permission: bungeesuite.chat.command.muteall
+        permission: gesuit.chat.command.muteall
         permission-message: §cYou do not have permission for this command
         usage: /<command>
     namecolor:
         description: Changes the players display name color
-        permission: bungeesuite.chat.command.namecolor
+        permission: gesuit.chat.command.namecolor
         permission-message: §cYou do not have permission for this command
         usage: /<command> (displayname) - &1S&2t&3e&4v&5e
     namecoloroff:
         description: Removes the players name color
         aliases: [nocolor]
-        permission: bungeesuite.chat.command.namecolor
+        permission: gesuit.chat.command.namecolor
         permission-message: §cYou do not have permission for this command
         usage: /<command>
     nickname:
         description: Changes the players display name
         aliases: [nick,displayname]
-        permission: bungeesuite.chat.command.nickname
+        permission: gesuit.chat.command.nickname
         permission-message: §cYou do not have permission for this command
         usage: |
             /<command> (nickname) - nickname self
@@ -141,25 +141,25 @@ commands:
     nicknameoff:
         description: Removes the players nickname
         aliases: [nickoff,nonick,nonickname]
-        permission: bungeesuite.chat.command.nickname
+        permission: gesuit.chat.command.nickname
         permission-message: §cYou do not have permission for this command
         usage: /<command>
     reloadchat:
         description: Reloads the chat config and channels
         aliases: [chatreload]
-        permission: bungeesuite.chat.command.reload
+        permission: gesuit.chat.command.reload
         permission-message: §cYou do not have permission for this command
         usage: /<command> 
     reply:
         description: Sends a reply to the last person who messaged you
         aliases: [r]
-        permission: bungeesuite.chat.command.reply
+        permission: gesuit.chat.command.reply
         permission-message: §cYou do not have permission for this command
         usage: /<command> (message)
     server:
         description: Send messages/toggle to the server channel
         aliases: [s,sc,serverchannel,schannel,channelserver]
-        permission: bungeesuite.chat.channel.server
+        permission: gesuit.chat.channel.server
         permission-message: §cYou do not have permission for this channel
         usage: |
             /<command> - toggles to the server channel
@@ -167,82 +167,82 @@ commands:
     tempmute:
         description: Temporarily mutes a player
         aliases: [tmute]
-        permission: bungeesuite.chat.command.tempmute
+        permission: gesuit.chat.command.tempmute
         permission-message: §cYou do not have permission for this command
         usage: /<command> (player) (time in minutes)
     toggle:
         description: Toggles through your available channels
         aliases: [togglechannel,channeltoggle, ct]
-        permission: bungeesuite.chat.command.toggle
+        permission: gesuit.chat.command.toggle
         permission-message: §cYou do not have permission for this command
         usage: /<command>
     unignore:
         description: Unignores a player from chat
         aliases: [uignore,unignoreplayer]
-        permission: bungeesuite.chat.command.ignore
+        permission: gesuit.chat.command.ignore
         permission-message: §cYou do not have permission for this command
         usage: /<command> (player)
     unmute:
         description: Unmutes a player from chat
         aliases: [umute, unmuteplayer]
-        permission: bungeesuite.chat.command.mute
+        permission: gesuit.chat.command.mute
         permission-message: §cYou do not have permission for this command
         usage: /<command> (player)
     unmuteall:
         description: Toggles off the proxy wide mute
-        permission: bungeesuite.chat.command.muteall
+        permission: gesuit.chat.command.muteall
         permission-message: §cYou do not have permission for this command
         usage: /<command>
 permissions:
-    bungeesuite.chat.*:
+    gesuit.chat.*:
         description: Gives access to all BungeeSuiteChat commands
         default: op
         children:
-            bungeesuite.chat.admin: true
-    bungeesuite.chat.admin:
+            gesuit.chat.admin: true
+    gesuit.chat.admin:
         description: Gives access to all BungeeSuiteChat admin commands
         children:
-            bungeesuite.chat.mod: true
-            bungeesuite.chat.command.afk.global: true
-            bungeesuite.chat.command.afk.display: true
-            bungeesuite.chat.nickname.other: true
-            bungeesuite.chat.toggle.bypass: true
-            bungeesuite.chat.command.chatspy: true
-            bungeesuite.chat.command.muteall: true
-            bungeesuite.chat.channel.admin: true
-            bungeesuite.chat.command.reload: true
-            bungeesuite.chat.command.nickname.other: true
-            bungeesuite.chat.vip: true
-            bungeesuite.chat.command.channelinfo.format: true
-    bungeesuite.chat.mod:
+            gesuit.chat.mod: true
+            gesuit.chat.command.afk.global: true
+            gesuit.chat.command.afk.display: true
+            gesuit.chat.nickname.other: true
+            gesuit.chat.toggle.bypass: true
+            gesuit.chat.command.chatspy: true
+            gesuit.chat.command.muteall: true
+            gesuit.chat.channel.admin: true
+            gesuit.chat.command.reload: true
+            gesuit.chat.command.nickname.other: true
+            gesuit.chat.vip: true
+            gesuit.chat.command.channelinfo.format: true
+    gesuit.chat.mod:
         description: Gives access to all BungeeSuiteChat mod commands
         children:
-            bungeesuite.chat.command.mute: true
-            bungeesuite.chat.command.tempmute: true
-            bungeesuite.chat.user: true
-    bungeesuite.chat.user:
+            gesuit.chat.command.mute: true
+            gesuit.chat.command.tempmute: true
+            gesuit.chat.user: true
+    gesuit.chat.user:
         description: Gives access to all BungeeSuiteChat user commands
         children:
-            bungeesuite.chat.channel.server: true
-            bungeesuite.chat.channel.local: true
-            bungeesuite.chat.channel.global: true
-            bungeesuite.chat.channel.faction: true
-            bungeesuite.chat.channel.factionally: true
-            bungeesuite.chat.channel.nation: true
-            bungeesuite.chat.channel.town: true
-            bungeesuite.chat.command.afk: true
-            bungeesuite.chat.command.channelinfo: true
-            bungeesuite.chat.command.ignore: true
-            bungeesuite.chat.command.ignores: true
-            bungeesuite.chat.command.message: true
-            bungeesuite.chat.command.reply: true
-            bungeesuite.chat.command.toggle: true
-    bungeesuite.chat.vip:
+            gesuit.chat.channel.server: true
+            gesuit.chat.channel.local: true
+            gesuit.chat.channel.global: true
+            gesuit.chat.channel.faction: true
+            gesuit.chat.channel.factionally: true
+            gesuit.chat.channel.nation: true
+            gesuit.chat.channel.town: true
+            gesuit.chat.command.afk: true
+            gesuit.chat.command.channelinfo: true
+            gesuit.chat.command.ignore: true
+            gesuit.chat.command.ignores: true
+            gesuit.chat.command.message: true
+            gesuit.chat.command.reply: true
+            gesuit.chat.command.toggle: true
+    gesuit.chat.vip:
         description: Gives the player access to the vip commands
         children:
-            bungeesuite.chat.command.nickname: true
-            bungeesuite.chat.command.me: true
-            bungeesuite.chat.user: true
-            bungeesuite.chat.color: true
+            gesuit.chat.command.nickname: true
+            gesuit.chat.command.me: true
+            gesuit.chat.user: true
+            gesuit.chat.color: true
 
         

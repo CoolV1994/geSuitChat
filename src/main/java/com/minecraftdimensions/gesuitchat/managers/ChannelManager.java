@@ -138,7 +138,7 @@ public class ChannelManager {
 		for (Player p : Bukkit.getOnlinePlayers()) {
 			if (!p.getWorld().equals(player.getWorld()) || p.getLocation().distance(player.getLocation()) > ServerData.getLocalDistance()) {
 				nonLocals.add(p);
-			} else if (!p.hasPermission("bungeesuite.chat.channel.local")) {
+			} else if (!p.hasPermission("gesuit.chat.channel.local")) {
 				nonLocals.add(p);
 			}
 		}
@@ -148,7 +148,7 @@ public class ChannelManager {
 	public static Collection<Player> getServerPlayers() {
 		Collection<Player> serverPlayers = new ArrayList<>();
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			if (p.hasPermission("bungeesuite.chat.channel.server")) {
+			if (p.hasPermission("gesuit.chat.channel.server")) {
 				serverPlayers.add(p);
 			}
 		}
@@ -158,7 +158,7 @@ public class ChannelManager {
 	public static Collection<Player> getGlobalPlayers() {
 		Collection<Player> globalPlayers = new ArrayList<>();
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			if (p.hasPermission("bungeesuite.chat.channel.global")) {
+			if (p.hasPermission("gesuit.chat.channel.global")) {
 				globalPlayers.add(p);
 			}
 		}
@@ -169,7 +169,7 @@ public class ChannelManager {
 		Collection<Player> factionPlayers = new ArrayList<>();
 		UPlayer uplayer = UPlayer.get(p);
 		for (Player ps : uplayer.getFaction().getOnlinePlayers()) {
-			if (ps.hasPermission("bungeesuite.chat.channel.faction")) {
+			if (ps.hasPermission("gesuit.chat.channel.faction")) {
 				factionPlayers.add(ps);
 			}
 		}
@@ -181,14 +181,14 @@ public class ChannelManager {
 		UPlayer uplayer = UPlayer.get(p);
 		Map<Rel, List<String>> rels = uplayer.getFaction().getFactionNamesPerRelation(uplayer.getFaction());
 		for (Player ps : uplayer.getFaction().getOnlinePlayers()) {
-			if (ps.hasPermission("bungeesuite.chat.channel.factionally")) {
+			if (ps.hasPermission("gesuit.chat.channel.factionally")) {
 				factionPlayers.add(ps);
 			}
 		}
 		for (String data : rels.get(Rel.ALLY)) {
 			Faction f = FactionColls.get().getForUniverse(uplayer.getFaction().getUniverse()).getByName(ChatColor.stripColor(data));
 			for (Player ps : f.getOnlinePlayers()) {
-				if (ps.hasPermission("bungeesuite.chat.channel.factionally")) {
+				if (ps.hasPermission("gesuit.chat.channel.factionally")) {
 					factionPlayers.add(ps);
 				}
 			}
@@ -199,7 +199,7 @@ public class ChannelManager {
 	public static Collection<GSPlayer> getBSGlobalPlayers() {
 		Collection<GSPlayer> globalPlayers = new ArrayList<>();
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			if (p.hasPermission("bungeesuite.chat.channel.global")) {
+			if (p.hasPermission("gesuit.chat.channel.global")) {
 				globalPlayers.add(PlayerManager.getPlayer(p));
 			}
 		}
@@ -209,7 +209,7 @@ public class ChannelManager {
 	public static Collection<Player> getAdminPlayers() {
 		Collection<Player> serverPlayers = new ArrayList<>();
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			if (p.hasPermission("bungeesuite.chat.channel.admin")) {
+			if (p.hasPermission("gesuit.chat.channel.admin")) {
 				serverPlayers.add(p);
 			}
 		}
@@ -219,7 +219,7 @@ public class ChannelManager {
 	public static Collection<GSPlayer> getBSAdminPlayers() {
 		Collection<GSPlayer> serverPlayers = new ArrayList<>();
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			if (p.hasPermission("bungeesuite.chat.channel.admin")) {
+			if (p.hasPermission("gesuit.chat.channel.admin")) {
 				serverPlayers.add(PlayerManager.getPlayer(p));
 			}
 		}
@@ -293,7 +293,7 @@ public class ChannelManager {
 			out.writeBoolean(getFactionChannelPerm(sender));
 			out.writeBoolean(getTownyChannelPerm(sender));
 			out.writeBoolean(inNation(sender));
-			out.writeBoolean(sender.hasPermission("bungeesuite.chat.toggle.bypass"));
+			out.writeBoolean(sender.hasPermission("gesuit.chat.toggle.bypass"));
 		} catch (IOException s) {
 			s.printStackTrace();
 		}
@@ -315,7 +315,7 @@ public class ChannelManager {
 			} else {
 				out.writeBoolean(false);
 			}
-			out.writeBoolean(sender.hasPermission("bungeesuite.chat.toggle.bypass"));
+			out.writeBoolean(sender.hasPermission("gesuit.chat.toggle.bypass"));
 		} catch (IOException s) {
 			s.printStackTrace();
 		}
@@ -402,29 +402,29 @@ public class ChannelManager {
 		Channel c = p.getChannel();
 		if (c.isDefault) {
 			if (ChannelManager.isGlobal(c)) {
-				return p.getPlayer().hasPermission("bungeesuite.chat.channel.global");
+				return p.getPlayer().hasPermission("gesuit.chat.channel.global");
 			} else if (ChannelManager.isServer(c)) {
-				return p.getPlayer().hasPermission("bungeesuite.chat.channel.server");
+				return p.getPlayer().hasPermission("gesuit.chat.channel.server");
 			} else if (ChannelManager.isLocal(c)) {
-				return p.getPlayer().hasPermission("bungeesuite.chat.channel.local");
+				return p.getPlayer().hasPermission("gesuit.chat.channel.local");
 			} else if (geSuitChat.factionChat && ChannelManager.isFactionChannel(c)) {
 				if (ChannelManager.isFaction(c)) {
-					return p.getPlayer().hasPermission("bungeesuite.chat.channel.faction");
+					return p.getPlayer().hasPermission("gesuit.chat.channel.faction");
 				} else if (ChannelManager.isFactionAlly(c)) {
-					return p.getPlayer().hasPermission("bungeesuite.chat.channel.factionally");
+					return p.getPlayer().hasPermission("gesuit.chat.channel.factionally");
 				}
 			} else if (geSuitChat.towny && isTownyChannel(c)) {
 				if (c.getName().equals("Town")) {
-					return p.getPlayer().hasPermission("bungeesuite.chat.channel.town");
+					return p.getPlayer().hasPermission("gesuit.chat.channel.town");
 				}
 				if (c.getName().equals("Nation")) {
-					return p.getPlayer().hasPermission("bungeesuite.chat.channel.nation");
+					return p.getPlayer().hasPermission("gesuit.chat.channel.nation");
 				}
 			} else {
-				return ChannelManager.isAdmin(c) && p.getPlayer().hasPermission("bungeesuite.chat.channel.admin");
+				return ChannelManager.isAdmin(c) && p.getPlayer().hasPermission("gesuit.chat.channel.admin");
 			}
 		} else {
-			return p.getPlayer().hasPermission("bungeesuite.chat.channel.custom");
+			return p.getPlayer().hasPermission("gesuit.chat.channel.custom");
 		}
 		return false;
 
@@ -491,7 +491,7 @@ public class ChannelManager {
 			out.writeUTF("GetChannelInfo");
 			out.writeUTF(sender.getName());
 			out.writeUTF(channel);
-			out.writeBoolean(sender.hasPermission("bungeesuite.chat.command.channelinfo.format"));
+			out.writeBoolean(sender.hasPermission("gesuit.chat.command.channelinfo.format"));
 		} catch (IOException s) {
 			s.printStackTrace();
 		}
@@ -505,7 +505,7 @@ public class ChannelManager {
 			out.writeUTF("SetChannelFormat");
 			out.writeUTF(sender.getName());
 			out.writeUTF(channel);
-			out.writeBoolean(sender.hasPermission("bungeesuite.chat.command.setformat.bypass"));
+			out.writeBoolean(sender.hasPermission("gesuit.chat.command.setformat.bypass"));
 		} catch (IOException s) {
 			s.printStackTrace();
 		}
@@ -543,7 +543,7 @@ public class ChannelManager {
 			r = TownyUniverse.getDataSource().getResident(player.getName());
 			Town t = r.getTown();
 			for (Player ps : TownyUniverse.getOnlinePlayers(t)) {
-				if (ps.hasPermission("bungeesuite.chat.channel.town")) {
+				if (ps.hasPermission("gesuit.chat.channel.town")) {
 					townPlayers.add(ps);
 				}
 			}
@@ -561,7 +561,7 @@ public class ChannelManager {
 			r = TownyUniverse.getDataSource().getResident(player.getName());
 			Nation n = r.getTown().getNation();
 			for (Player ps : TownyUniverse.getOnlinePlayers(n)) {
-				if (ps.hasPermission("bungeesuite.chat.channel.nation")) {
+				if (ps.hasPermission("gesuit.chat.channel.nation")) {
 					townPlayers.add(ps);
 				}
 			}

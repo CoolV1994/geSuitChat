@@ -15,7 +15,7 @@ public class NameColorOffCommand implements CommandExecutor {
 			return true;
 		}
 		if (args.length == 1) {
-			if (!sender.hasPermission("bungeesuite.chat.command.namecolor.other")) {
+			if (!sender.hasPermission("gesuit.chat.command.namecolor.other")) {
 				sender.sendMessage(command.getPermissionMessage());
 				return true;
 			} else {

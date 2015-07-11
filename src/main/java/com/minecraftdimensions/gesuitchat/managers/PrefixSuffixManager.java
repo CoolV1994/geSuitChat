@@ -89,7 +89,7 @@ public class PrefixSuffixManager {
 
 	public static String getPlayersSuffixGroup(Player player) {
 		for (String s : suffixes.keySet()) {
-			if (player.hasPermission("bungeesuite.chat.suffix." + s)) {
+			if (player.hasPermission("gesuit.chat.suffix." + s)) {
 				return s;
 			}
 		}
@@ -99,7 +99,7 @@ public class PrefixSuffixManager {
 
 	public static String getPlayersPrefixGroup(Player player) {
 		for (String s : prefixes.keySet()) {
-			if (player.hasPermission("bungeesuite.chat.prefix." + s)) {
+			if (player.hasPermission("gesuit.chat.prefix." + s)) {
 				return s;
 			}
 		}

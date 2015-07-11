@@ -102,14 +102,14 @@ public class MessageListener implements PluginMessageListener {
 				if (prefix) {
 					PrefixSuffixManager.prefixes.put(group, affix);
 					PrefixSuffixManager.prefix = true;
-					if (Bukkit.getPluginManager().getPermission("bungeesuite.chat.prefix." + group) == null) {
-						Bukkit.getPluginManager().addPermission(new Permission("bungeesuite.chat.prefix." + group, "Gives access to the " + affix + " prefix", PermissionDefault.FALSE));
+					if (Bukkit.getPluginManager().getPermission("gesuit.chat.prefix." + group) == null) {
+						Bukkit.getPluginManager().addPermission(new Permission("gesuit.chat.prefix." + group, "Gives access to the " + affix + " prefix", PermissionDefault.FALSE));
 					}
 				} else {
 					PrefixSuffixManager.suffixes.put(group, affix);
 					PrefixSuffixManager.suffix = true;
-					if (Bukkit.getPluginManager().getPermission("bungeesuite.chat.suffix." + group) == null) {
-						Bukkit.getPluginManager().addPermission(new Permission("bungeesuite.chat.suffix." + group, "Gives access to the " + affix + " suffix", PermissionDefault.FALSE));
+					if (Bukkit.getPluginManager().getPermission("gesuit.chat.suffix." + group) == null) {
+						Bukkit.getPluginManager().addPermission(new Permission("gesuit.chat.suffix." + group, "Gives access to the " + affix + " suffix", PermissionDefault.FALSE));
 					}
 				}
 			} catch (IOException e) {

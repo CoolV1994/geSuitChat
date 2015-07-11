@@ -112,7 +112,7 @@ public class Utilities {
 	}
 
 	public static String SetMessage(Player player, String message) {
-		if (player.hasPermission("bungeesuite.chat.color")) {
+		if (player.hasPermission("gesuit.chat.color")) {
 			message = colorize(message);
 		}
 		return message;
