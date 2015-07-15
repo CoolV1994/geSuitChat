@@ -1,10 +1,8 @@
-name: Chat
+name: geSuitChat
 main : com.minecraftdimensions.gesuitchat.geSuitChat
 version: ${project.version}b-${build.number}
-description: Part of the BungeeSuite this plugin handles all player chat
+description: Part of the geSuit, this plugin handles all player chat
 author: Bloodsplat
-website: http://www.spigotmc.org/resources/gesuit.9/
-prefix: geSuit
 softdepend: [Factions, TownyChat, Towny]
 commands:
     admin:
