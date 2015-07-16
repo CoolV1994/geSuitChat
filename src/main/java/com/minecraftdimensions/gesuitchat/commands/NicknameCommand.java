@@ -1,5 +1,6 @@
 package com.minecraftdimensions.gesuitchat.commands;
 
+import com.minecraftdimensions.gesuitchat.FormatUtils;
 import com.minecraftdimensions.gesuitchat.managers.PlayerManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,7 +12,14 @@ public class NicknameCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command,
 							 String label, String[] args) {
 		if (args.length == 1) {
-			PlayerManager.nicknamePlayer(sender.getName(), sender.getName(), args[0], true);
+			String nickname = args[0];
+			if (!sender.hasPermission("gesuit.chat.command.nickname.magic"))
+				nickname = FormatUtils.stripMagic(nickname);
+			if (!sender.hasPermission("gesuit.chat.command.nickname.format"))
+				nickname = FormatUtils.stripFormat(nickname);
+			if (!sender.hasPermission("gesuit.chat.command.nickname.color"))
+				nickname = FormatUtils.stripColor(nickname);
+			PlayerManager.nicknamePlayer(sender.getName(), sender.getName(), nickname, true);
 			return true;
 		}
 		if (args.length == 2) {

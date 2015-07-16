@@ -238,9 +238,14 @@ permissions:
     gesuit.chat.vip:
         description: Gives the player access to the vip commands
         children:
-            gesuit.chat.command.nickname: true
+            gesuit.chat.command.namecolor: true
             gesuit.chat.command.me: true
             gesuit.chat.user: true
             gesuit.chat.color: true
-
-        
+    gesuit.chat.command.nickname.*:
+        description: Gives the player full nickname access
+        children:
+            gesuit.chat.command.nickname: true
+            gesuit.chat.command.nickname.color: true
+            gesuit.chat.command.nickname.format: true
+            gesuit.chat.command.nickname.magic: true
