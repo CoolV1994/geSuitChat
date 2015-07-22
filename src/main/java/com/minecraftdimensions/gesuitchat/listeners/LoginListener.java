@@ -3,7 +3,6 @@ package com.minecraftdimensions.gesuitchat.listeners;
 
 import com.minecraftdimensions.gesuitchat.geSuitChat;
 import com.minecraftdimensions.gesuitchat.managers.ChannelManager;
-import com.minecraftdimensions.gesuitchat.managers.PermissionsManager;
 import com.minecraftdimensions.gesuitchat.managers.PlayerManager;
 import com.minecraftdimensions.gesuitchat.objects.ServerData;
 import org.bukkit.Bukkit;
@@ -20,17 +19,6 @@ public class LoginListener implements Listener {
 	public void setFormatChat(final PlayerLoginEvent e) {
 		if (!e.getResult().equals(PlayerLoginEvent.Result.ALLOWED)) {
 			return;
-		}
-		if (e.getPlayer().hasPermission("gesuit.*")) {
-			PermissionsManager.addAllPermissions(e.getPlayer());
-		} else if (e.getPlayer().hasPermission("gesuit.admin")) {
-			PermissionsManager.addAdminPermissions(e.getPlayer());
-		} else if (e.getPlayer().hasPermission("gesuit.mod")) {
-			PermissionsManager.addModPermissions(e.getPlayer());
-		} else if (e.getPlayer().hasPermission("gesuit.vip")) {
-			PermissionsManager.addVIPPermissions(e.getPlayer());
-		} else if (e.getPlayer().hasPermission("gesuit.user")) {
-			PermissionsManager.addUserPermissions(e.getPlayer());
 		}
 		if (!ChannelManager.receivedChannels) {
 			Bukkit.getScheduler().runTaskLaterAsynchronously(geSuitChat.instance, new Runnable() {
