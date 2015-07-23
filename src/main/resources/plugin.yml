@@ -106,7 +106,12 @@ commands:
         aliases: [tell,msg,pm,w,whisper,m]
         permission: gesuit.chat.command.message
         permission-message: §cYou do not have permission for this command
-        usage: /<command> (message)
+        usage: /<command> (player) (message)
+    mail:
+        description: Send a private message to a player
+        permission: gesuit.chat.command.mail
+        permission-message: §cYou do not have permission for this command
+        usage: /<command> (send | read | clear) [player | page] [message]
     mute:
         description: Mute a specified player from chat
         permission: gesuit.chat.command.mute
@@ -242,6 +247,7 @@ permissions:
             gesuit.chat.command.me: true
             gesuit.chat.user: true
             gesuit.chat.color: true
+            gesuit.chat.command.mail: true
     gesuit.chat.command.nickname.*:
         description: Gives the player full nickname access
         children:

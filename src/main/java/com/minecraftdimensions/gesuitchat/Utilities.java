@@ -128,4 +128,21 @@ public class Utilities {
 			return UUID.fromString(uuid);
 		}
 	}
+
+	public static String toStringFrom(String[] array, int start) {
+		if (array == null)
+			return "";
+
+		int end = array.length - 1;
+		if (end == -1)
+			return "";
+
+		StringBuilder b = new StringBuilder();
+		for (int i = start; ; i++) {
+			b.append(array[i]);
+			if (i == end)
+				return b.toString();
+			b.append(" ");
+		}
+	}
 }

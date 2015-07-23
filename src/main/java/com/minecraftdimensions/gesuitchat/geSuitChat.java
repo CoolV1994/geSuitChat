@@ -96,6 +96,7 @@ public class geSuitChat extends JavaPlugin {
 		getCommand("local").setExecutor(new LocalCommand());
 		getCommand("me").setExecutor(new MeCommand());
 		getCommand("message").setExecutor(new MessageCommand());
+		getCommand("mail").setExecutor(new MailCommand());
 		getCommand("mute").setExecutor(new MuteCommand());
 		getCommand("muteall").setExecutor(new MuteAllCommand());
 		getCommand("namecolor").setExecutor(new NameColorCommand());
